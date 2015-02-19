@@ -1,5 +1,11 @@
+sign.general <- function(x){
+  # R function sign() does not operate on complex vectors.
+  # this general sign.general() function does.
+  return(x / Mod(x))
+}
+
 soft <- function(x,d){
-  return(sign(x)*pmax(0, abs(x)-d))
+  return(sign.general(x)*pmax(0, abs(x)-d))
 }
  
 mean.na <- function(vec){
